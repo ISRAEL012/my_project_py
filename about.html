@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+{% block content %}
+    
+
+    <h2>{{ page_title }}</h2>
+    <p>The city of Restoration churh is a Churchthat believes and proclams salvation thrououggh Jesus and whose vision is to bring the people of the Lord to the restoration of their complete being and above all to make them disciples of Jesus. It is made up of several department, in particular young people, mothers, dads,Sunday school and many others.</p>
+    
+    {% for period in program %}
+
+    
+    <div class="row featurette">
+        
+        {% if loop.index % 2 != 0 %}
+        
+        <div class="col-md-7">
+            <h3><a href="/about/{{ period.url }}">{{ loop.index }}. {{ period.day }}</a></h3>
+            <p>{{ period.description }}</p>
+            <p>{{ period.time }}</p>
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive" src="{{ period.image_source }}">
+        </div>
+        {% else %}
+        <div class="col-md-5">
+            <img class="featurette-image img-responsive" src="{{ period.image_source }}">
+        </div>
+        <div class="col-md-7">
+            <h3><a href="/about/{{ period.url }}">{{ loop.index }}. {{ period.day }}</a></h3>
+            <p>{{ period.description }}</p>
+            <p>{{ period.time }}</p>
+        </div>
+        {% endif %}
+        
+    </div>
+    {% if loop.index != 3 %}
+    <hr class="featurette-divider">
+    {% endif %}
+    {% endfor %}
+
+{% endblock %}    
