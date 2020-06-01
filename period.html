@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-5">
+        <img src="{{ period.image_source }}" alt="profile image for {{ period.day }}">
+        <h2 class="col-md-7">{{ period.day }}</h2>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <p>{{ period.description }}</p>
+    <p>{{ period.time }}</p>
+</div>
+
+{% endblock %}
